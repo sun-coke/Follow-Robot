@@ -1,5 +1,7 @@
 # followbot
 The basic steps of the project :
+
+
 1.Collcet the image information and pass it to Opencv
 
 
