@@ -11,6 +11,8 @@ The basic steps of the project :
 3.Manipulate the robot to keep running in the center of line
 
 
+![image](https://github.com/sun-coke/follow-bot/blob/master/screen.png)
+
 
 # Followbot Demo
 
