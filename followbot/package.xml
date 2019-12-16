@@ -3,9 +3,8 @@
   <name>followbot</name>
   <version>0.0.0</version>
   <description>The followbot package</description>
-  <maintainer email="morgan@osrfoundation.org">Morgan Quigley</maintainer>
+  <maintainer email="sunsir@todo.todo">sunsir</maintainer>
   <license>BSD</license>
-  <author email="morgan@osrfoundation.org">Morgan Quigley</author>
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>rospy</build_depend>
   <run_depend>rospy</run_depend>
