@@ -8,18 +8,15 @@
     <arg name="world_name" value="$(find followbot)/world/course.world"/>
   </include>
 
-  <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
-  <arg name="x_pos" default="0.0"/>
-  <arg name="y_pos" default="0.0"/>
-  <arg name="z_pos" default="0.0"/>
+  	<param name="robot_description" command="$(find xacro)/xacro --inorder '$(find mbot_sim)/urdf/xacro/mbot_gazebo.xacro'"/>
 
-  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
-  <param name="publish_frequency" type="double" value="30.0" />
-  </node>
-
-  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -model turtlebot3 -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
-
- <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
+	<!--运行joint_state_publisher节点，发布机器人关节状态-->
+	<node name = "robot_state_publisher" pkg = "robot_state_publisher" type = "state_publisher">
+		<param name="publish_frequency" type="double" value="20.0" />
+	</node>
+	    <!-- 在gazebo中加载机器人模型-->
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+          args="-urdf -model shcrobot -param robot_description"/> 
 
  <!-- Fake laser -->
   <node pkg="nodelet" type="nodelet" name="laserscan_nodelet_manager" args="manager"/>
