@@ -8,8 +8,8 @@ from std_msgs.msg import Float64
 class Follower:
   def __init__(self):
     self.bridge = cv_bridge.CvBridge()
-    self.image_sub = rospy.Subscriber('camera/image_raw', Image, self.image_callback)
-    self.cmd_vel_pub = rospy.Publisher('cmd_vel', Twist, queue_size=1)
+    self.image_sub = rospy.Subscriber('camera/rgb/image_raw', Image, self.image_callback)
+    self.cmd_vel_pub = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
     self.err_pub = rospy.Publisher('err', Float64, queue_size=1)
     self.twist = Twist()
 
